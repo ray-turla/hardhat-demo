@@ -1,0 +1,14 @@
+# Misc files
+node_modules
+.env
+typechain
+typechain-types
+*.json
+*.json
+*.md
+
+# Hardhat files
+cache
+artifacts
+coverage
+coverage.json
