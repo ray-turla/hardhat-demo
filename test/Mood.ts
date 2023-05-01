@@ -4,9 +4,9 @@ import { ethers } from "hardhat";
 describe("Mood", function () {
   it("Test mood initial value", async () => {
     const initialMoodValue = "Neutral";
-    const contractName = "Mood"
+    const contractName = "Mood";
     const Mood = await ethers.getContractFactory(contractName);
-    console.log(`Deploying ${contractName} contract...`)
+    console.log(`Deploying ${contractName} contract...`);
     const mood = await Mood.deploy(initialMoodValue);
     await mood.deployed();
     console.log(`Contract ${contractName} deployed to ${mood.address}`);
@@ -16,9 +16,9 @@ describe("Mood", function () {
   it("Test mood set value", async () => {
     const initialMoodValue = "Neutral";
     const setMoodValue = "Happy";
-    const contractName = "Mood"
+    const contractName = "Mood";
     const Mood = await ethers.getContractFactory(contractName);
-    console.log(`Deploying ${contractName} contract...`)
+    console.log(`Deploying ${contractName} contract...`);
     const mood = await Mood.deploy(initialMoodValue);
     await mood.deployed();
     console.log(`Contract ${contractName} deployed to ${mood.address}`);

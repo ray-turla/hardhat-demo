@@ -1,3 +1,3 @@
-import "./accounts"
-import "./network"
-import "./block"
+import "./accounts";
+import "./network";
+import "./block";
