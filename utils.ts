@@ -1,7 +1,7 @@
 type environment = "production" | "development" | "local";
 
 function getDefaultNetwork(env: environment) {
-  let network = "localhost";
+  let network = "hardhat";
   switch (env) {
     case "production":
       network = "";
