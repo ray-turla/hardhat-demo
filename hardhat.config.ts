@@ -4,7 +4,7 @@ import "@nomiclabs/hardhat-etherscan";
 import CONST from "./constants";
 import * as dotenv from "dotenv";
 import { getDefaultNetwork } from "./utils";
-import "./tasks"
+import "./tasks";
 dotenv.config();
 
 const config: HardhatUserConfig = {
@@ -12,14 +12,14 @@ const config: HardhatUserConfig = {
   solidity: "0.8.18",
   networks: {
     sepolia: {
-      url: process.env.SEPOLIA_URL,
+      url: process.env.SEPOLIA_RPC_URL,
       accounts: [process.env.PRIVATE_KEY],
       chainId: CONST.chainId.sepolia,
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
-  }
+    apiKey: process.env.ETHERSCAN_API_KEY,
+  },
 };
 
 export default config;
