@@ -1,28 +1,25 @@
-import { expect } from "chai";
+import { assert } from "chai";
+import { Contract, ContractFactory } from "ethers";
 import { ethers } from "hardhat";
 
 describe("Mood", function () {
-  it("Test mood initial value", async () => {
-    const initialMoodValue = "Neutral";
-    const contractName = "Mood";
-    const Mood = await ethers.getContractFactory(contractName);
-    console.log(`Deploying ${contractName} contract...`);
-    const mood = await Mood.deploy(initialMoodValue);
-    await mood.deployed();
-    console.log(`Contract ${contractName} deployed to ${mood.address}`);
-    expect(await mood.getMood()).to.equal(initialMoodValue);
+  const initialMoodValue = "Neutral";
+  const contractName = "Mood";
+  const setMoodValue = "Happy"
+  let MoodFactory: ContractFactory; 
+  let mood: Contract;
+  this.beforeEach(async function() {
+    MoodFactory = await ethers.getContractFactory(contractName);
+    mood = await MoodFactory.deploy(initialMoodValue);
+  })
+  it(`Initial mood must be ${initialMoodValue}`, async function (){
+    const currentValue = await mood.getMood()
+    assert.equal(currentValue, initialMoodValue)
   });
 
-  it("Test mood set value", async () => {
-    const initialMoodValue = "Neutral";
-    const setMoodValue = "Happy";
-    const contractName = "Mood";
-    const Mood = await ethers.getContractFactory(contractName);
-    console.log(`Deploying ${contractName} contract...`);
-    const mood = await Mood.deploy(initialMoodValue);
-    await mood.deployed();
-    console.log(`Contract ${contractName} deployed to ${mood.address}`);
+  it(`Updated value must be ${setMoodValue}`, async function() {
     await mood.setMood(setMoodValue);
-    expect(await mood.getMood()).to.equal(setMoodValue);
+    const currentValue = await mood.getMood();
+    assert.equal(currentValue, setMoodValue)
   });
 });
