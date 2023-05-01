@@ -16,6 +16,10 @@ const config: HardhatUserConfig = {
       accounts: [process.env.PRIVATE_KEY],
       chainId: CONST.chainId.sepolia,
     },
+    localhost: {
+      url: process.env.LOCAL_RPC_URL,
+      chainId: 31337,
+    },
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
