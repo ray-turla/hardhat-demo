@@ -1,9 +1,8 @@
-
-type environment = "production" | "development" | "local"
+type environment = "production" | "development" | "local";
 
 function getDefaultNetwork(env: environment) {
-  let network = "hardhat"
-  switch(env) {
+  let network = "localhost";
+  switch (env) {
     case "production":
       network = "";
       break;
